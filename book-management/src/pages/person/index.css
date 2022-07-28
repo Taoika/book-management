@@ -1,0 +1,190 @@
+.person {
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* 背景栏 */
+.person-banner {
+    width: 1200px;
+    height: 215px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    background-color: #979797;
+}
+
+/* 用户信息 */
+.person-personalInfo {
+    position: absolute;
+    top: 200px;
+    left: 50px;
+    box-sizing: border-box;
+    width: 280px;
+    height: 215px;
+    padding: 50px 0 20px 0;
+    border-radius: 15px;
+    background-color:#FCFCFC;
+}
+
+.person-userIcon {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 100px;
+    background-color: #fff;
+    transform: translate(-50%,0);
+}
+
+.person-userIcon>img {
+    border-radius: 50%;
+}
+
+.person-usernameAndIdio {
+    text-align: center;
+    padding:0 0 20px 0;
+    border-bottom: 0.5px solid rgba(151, 151, 151, 0.5);
+}
+
+.person-username {
+    font-size: 20px;
+    color: #101010;
+}
+
+.person-idio {
+    font-size: 14px;
+    color: #979797;
+}
+
+.person-edit,
+.person-quit {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-bottom: 0.5px solid rgba(151, 151, 151, 0.5);
+    padding: 8px;
+    font-size: 14px;
+    color: #101010;
+}
+
+.person-edit>div>img,
+.person-quit>div>img {
+    margin: 0 12px 0 0;
+}
+
+/* 收藏栏 */
+
+.person-content {
+    position: absolute;
+    right: 84px;
+    top: 230px;
+    box-sizing: border-box;
+    width: 728px;
+    height: 448px;
+    margin: 0 0 24px 0;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #FCFCFC;
+}
+
+/* 内容框头部 */
+.person-content-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0 0 10px 0;
+}
+
+.person-content-head-left {
+    margin:0 12px 0 0 ;
+    font-size: 24px;
+    color: black;
+}
+
+.person-content-head-left>img {
+    border-radius: 50%;
+    margin-right: 4px;
+    vertical-align: calc(-6px);
+}
+
+.person-content-head-right {
+    font-size: 16px;
+    color: black;
+}
+
+.person-content-head-right>img {
+    vertical-align: calc(-3px);
+}
+
+.person-content-head-right:hover {
+    color: black;
+}
+
+/* 内容框身体部分 */
+
+.person-content-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.person-book {
+    width: 216px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.person-book-titleAndPonit {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    padding: 10px 16px 0 12px;
+}
+
+.person-book-title {
+    font-size: 14px;
+    font-weight: 700;
+    color:#101010
+}
+
+.person-book-point {
+    font-weight: 700;
+    font-size: 16px;
+    color: #FEBA07;
+}
+
+.person-book-authorAndTag {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    padding: 11px 11px 14px 12px;
+    font-size: 12px;
+}
+
+.person-book-author {
+    font-size: 12px;
+    color: #101010;
+}
+
+.person-book-tag {
+    width: 72px;
+    height: 20px;
+    border-radius: 10px;
+    line-height: 20px;
+    text-align: center;
+    color: #FCFCFC;
+    background-color: #773D31;
+}
+
+.person-guessYouLike>.person-book {
+    margin-bottom: 20px;
+}
+
+/* 历史浏览 */
+.history {
+    top: 700px;
+}

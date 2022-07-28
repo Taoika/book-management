@@ -1,0 +1,85 @@
+/* 导航栏 */
+.nav-container {
+    width: 1200px;
+    margin: 0 auto;
+    background-color:  #D9D9D9;
+}
+
+a {
+    color:#FCFCFC;
+}
+
+a:hover {
+    color:#FCFCFC;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    box-sizing: border-box;
+    width: 1120px;
+    height: 80px;
+    margin: 0 0 0 80px;
+    background-color: rgba(119, 61, 49, 1);
+}
+.nav-screen {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 80px;
+    font-size: 20px;
+    line-height: 80px;
+    color: #FCFCFC;
+}
+
+.nav-screen>li {
+    margin-left: 40px;
+}
+
+.nav-screen>li:last-child {
+    margin-right: 40px;
+}
+
+.nav-right {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-user-icon {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    margin: 0 20px 0 0;
+    border-radius: 50%;
+    background-color: #D9D9D9;
+    overflow: hidden;
+}
+
+.nav-right {
+    position: relative;
+}
+
+.nav-search>input{
+    box-sizing: border-box;
+    width: 200px;
+    height: 40px;
+    padding: 0 0 0 42px;
+    margin: 0 60px 0 0;
+    border: 1px solid rgba(0,0,0,.05);
+    border-radius: 20px;
+    background-color: #D9D9D9;
+    outline: none;
+}
+
+.nav-search>button {
+    position: absolute;
+    left: 15px;
+    bottom:50%;
+    border: none;
+    background-color: rgba(0,0,0,0);
+    transform: translate(0,50%);
+}
