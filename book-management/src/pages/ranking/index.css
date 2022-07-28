@@ -1,0 +1,119 @@
+li {
+    list-style: none
+}
+
+
+em,
+i {
+    font-style: normal
+}
+
+.Ranking {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;
+}
+
+.Ranking-top {
+    width: 800px;
+    height: 188px;
+    background: #FCFCFC;
+}
+
+.Ranking-nav {
+    width: 800px;
+}
+
+.Ranking-nav li {
+    float: left;
+    margin-right: 10px;
+    width: 120px;
+    height: 40px;
+
+
+    font-family: 'Microsoft YaHei';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 36px;
+    text-align: center;
+
+    color: #101010;
+
+    background: #D9D9D9;
+    border-radius: 61px;
+}
+
+.Ranking-nav li a {
+    display: block;
+    width: 120px;
+    height: 40px;
+    border-radius: 61px;
+    color: #101010;
+}
+
+.Ranking-nav li .active {
+    background: #773D31;
+    color: #FCFCFC;
+}
+
+.Ranking-list {
+    margin-top: 50px;
+}
+
+.Ranking img {
+    display: block;
+    width: 216px;
+    height: 288px;
+    margin-top: 4px;
+    border-radius: 8px;
+}
+
+.Ranking .ant-list-item-meta-title {
+    position: absolute;
+    width: 156px;
+    height: 18px;
+    left: 462px;
+    top: 28px;
+
+    font-family: 'Microsoft YaHei';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+
+    color: #101010;
+}
+
+.Ranking-text {
+    position: absolute;
+    width: 400px;
+    height: 48px;
+    left: 482px;
+    top: 61px;
+
+    font-family: 'Microsoft YaHei';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+
+    color: #101010;
+}
+
+.Ranking .ant-list-item-action {
+    position: absolute;
+    width: 300px;
+    left: 462px;
+    top: 244px;
+}
+
+.Ranking .ant-col {
+    padding-left: -360px;
+}
+
+.Ranking .ant-space-item {
+    font-size: 22px;
+}

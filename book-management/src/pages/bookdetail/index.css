@@ -1,0 +1,251 @@
+li {
+    list-style: none
+}
+
+em,
+i {
+    font-style: normal
+}
+
+.Bookdetail {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.Bookdetail-top {
+    width: 800px;
+    height: 188px;
+    background: #FCFCFC;
+}
+
+.Bookdetail-title {
+    position: absolute;
+    width: 96px;
+    height: 42px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 30px;
+
+    font-family: 'Microsoft YaHei';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 42px;
+    text-align: center;
+
+    color: #000000;
+}
+
+.Bookdetail-authorname {
+    position: absolute;
+    width: 96px;
+    height: 42px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 80px;
+
+    font-family: 'Microsoft YaHei';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    text-align: center;
+
+    color: #101010;
+}
+
+.Bookdetail-icon1 {
+    position: absolute;
+    left: 294px;
+    top: 126px;
+    font-size: 32px;
+    color: #773D31;
+}
+
+.Bookdetail-icon1:hover,
+.Bookdetail-icon2:hover,
+.Bookdetail-icon3:hover {
+    cursor: pointer;
+}
+
+.Bookdetail-icon2 {
+    position: absolute;
+    left: 385px;
+    top: 126px;
+    font-size: 32px;
+    color: #d65555cf;
+}
+
+.Bookdetail-icon3 {
+    position: absolute;
+    left: 485px;
+    top: 126px;
+    font-size: 32px;
+    color: #773D31;
+}
+
+.Bookdetail-card {
+    position: absolute;
+    width: 800px;
+    height: 333px;
+    top: 208px;
+    background: #FCFCFC;
+}
+
+.Bookdetail-pic {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.Bookdetail-label {
+    position: absolute;
+    top: 7px;
+    left: 120px;
+}
+
+.Bookdetail-tag {
+    position: absolute;
+    width: 72px;
+    height: 20px;
+    left: 84px;
+    top: 182px;
+    font-family: 'Microsoft YaHei';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height */
+    text-align: center;
+    color: #FCFCFC;
+    background: #773D31;
+    border-radius: 59px;
+}
+
+.Bookdetail-line {
+    position: absolute;
+    width: 200px;
+    height: 0px;
+    left: 490px;
+    top: 118px;
+
+    border: 0.5px solid #979797;
+    transform: rotate(90deg);
+}
+
+.Bookdetail-score {
+    position: absolute;
+    width: 55px;
+    height: 48px;
+    left: 665px;
+    top: 46px;
+
+    font-family: 'Microsoft YaHei';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 48px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #FEBA07;
+}
+
+.Bookdetail-scorepople {
+    position: absolute;
+    width: 109px;
+    height: 18px;
+    left: 635px;
+    top: 100px;
+
+    font-family: 'Microsoft YaHei';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+
+    color: #000000;
+}
+
+.Bookdetail-imf li {
+    width: 52px;
+    margin-right: 14px;
+    float: left;
+}
+
+.Bookdetail-imf {
+    position: absolute;
+    left: 562px;
+    top: 145px;
+}
+
+.Bookdetail-desc {
+    position: absolute;
+    left: 22px;
+    top: 235px;
+
+    font-family: 'Microsoft YaHei';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+
+    color: #101010;
+
+}
+
+.Bookdetail-author {
+    position: absolute;
+    top: 560px;
+    width: 800px;
+    height: 188px;
+    background: #FCFCFC;
+}
+
+.Bookdetail-authorpic {
+    margin-left: 20px;
+    margin-top: 20px;
+
+}
+
+.Bookdetail-authordesc {
+    position: absolute;
+    top: 24px;
+    width: 800px;
+    left: 137px;
+
+    font-family: 'Microsoft YaHei';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+
+    color: #000000;
+}
+
+.Bookdetail-authordesccontent {
+    position: absolute;
+    top: 44px;
+    width: 650px;
+    left: 137px;
+    height: 178px;
+
+    font-family: 'Microsoft YaHei';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+
+    color: #101010;
+}
+
+.Bookdetail-comment {
+    position: absolute;
+    top: 760px;
+    width: 800px;
+    height: 1388px;
+    background: #FCFCFC;
+}
