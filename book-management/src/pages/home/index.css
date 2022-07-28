@@ -1,0 +1,110 @@
+/* 广告栏 */
+.home-banner {
+    width: 1200px;
+    height: 320px;
+    margin: 0 auto 10px;
+    background-color: #773D31;
+}
+
+/* 内容框 */
+.home-content {
+    box-sizing: border-box;
+    width: 1200px;
+    height: 430px;
+    margin: 0 auto 24px;
+    padding: 20px;
+    background-color: #FCFCFC;
+}
+
+/* 内容框头部 */
+.home-content-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 0 10px 0;
+}
+
+.home-content-head-left {
+    font-size: 24px;
+    color: black;
+}
+
+.home-content-head-left>img {
+    border-radius: 50%;
+    margin-right: 4px;
+    vertical-align: calc(-6px);
+}
+
+.home-content-head-right {
+    font-size: 16px;
+    color: black;
+}
+
+.home-content-head-right>img {
+    vertical-align: calc(-3px);
+}
+
+.home-content-head-right:hover {
+    color: black;
+}
+
+/* 内容框身体部分 */
+
+.home-content-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.home-book {
+    width: 216px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.home-book-nameAndScore {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    padding: 10px 16px 0 12px;
+}
+
+.home-book-name {
+    font-size: 14px;
+    font-weight: 700;
+    color:#101010
+}
+
+.home-book-score {
+    font-weight: 700;
+    font-size: 16px;
+    color: #FEBA07;
+}
+
+.home-book-authorAndType {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    padding: 11px 11px 14px 12px;
+    font-size: 12px;
+}
+
+.home-book-author {
+    font-size: 12px;
+    color: #101010;
+}
+
+.home-book-type {
+    width: 72px;
+    height: 20px;
+    border-radius: 10px;
+    line-height: 20px;
+    text-align: center;
+    color: #FCFCFC;
+    background-color: #773D31;
+}
+
+.home-guessYouLike>.home-book {
+    margin-bottom: 20px;
+}
