@@ -11,11 +11,16 @@ export default function Sort() {
     let patent = JSON.parse(localStorage.getItem('book-management-patent'));
     const user_id=patent.user_id;
 
+    // message状态存放有后台传输进来的信息
     const [message,setMessage]=React.useState([]);
 
+    
+    const [tag,setTag]=React.useState('科幻经典');
+
+    // 刚进来页面的时候一第一个标签发送请求
     React.useEffect(()=>{
-        const tag=document.querySelector('.sort-tag>a');
-        tag.style.backgroundColor='#773D31';
+        const kind=document.querySelector('.sort-tag>a');
+        kind.style.backgroundColor='#773D31';
         axios.post('http://localhost:8000/sort',JSON.stringify({
             user_id:user_id,
             tag:tag.innerHTML,
@@ -67,30 +72,39 @@ export default function Sort() {
     }
 
     // 点击分类标签
-    function handleClick(Event){
-        const tags=document.querySelectorAll(`.sort-tag>a`);
-        // 被选中的标签变换底色
-        for(const i of tags){
-            i.style.backgroundColor='#d9d9d9'
-        }
-        Event.target.style.backgroundColor='#773D31'
+    // function handleClick(Event){
+    //     const tags=document.querySelectorAll(`.sort-tag>a`);
+    //     // 被选中的标签变换底色
+    //     for(const i of tags){
+    //         i.style.backgroundColor='#d9d9d9'
+    //     }
+    //     Event.target.style.backgroundColor='#773D31'
 
-        axios.post('http://localhost:8000/sort',JSON.stringify({
-            user_id:user_id,
-            tag:Event.target.innerHTML,
-          }))
-          .then(
-            (response)=>{
-                // const books=document.querySelectorAll('.sort-content>li')
-                // for(const i of books){
-                //     i.remove();
-                // }
-                setMessage(response.data.message);
-            },
-            (error)=>{
-                console.log(error);
-              })
+    //     axios.post('http://localhost:8000/sort',JSON.stringify({
+    //         user_id:user_id,
+    //         tag:Event.target.innerHTML,
+    //       }))
+    //       .then(
+    //         (response)=>{
+    //             // const books=document.querySelectorAll('.sort-content>li')
+    //             // for(const i of books){
+    //             //     i.remove();
+    //             // }
+    //             setMessage(response.data.message);
+    //         },
+    //         (error)=>{
+    //             console.log(error);
+    //           })
+    // }
+
+    React.useEffect(()=>{
+        console.log('tag属性改变了');
+    },[tag])
+
+    function handleClick(Event){
+        setTag(Event.target.innerHTML);
     }
+
 
     return (
       <div className="sort">
@@ -98,23 +112,23 @@ export default function Sort() {
             <div className="sort-title">标签选择</div>
             <div className="sort-tag">
                 <Link to={''} onClick={(Event)=>handleClick(Event)}>科幻经典</Link>
-                <Link to={''} onClick={(Event)=>handleClick(Event)}>科幻经典</Link>
-                <Link to={''} onClick={(Event)=>handleClick(Event)}>科幻经典</Link>
-                <Link to={''} onClick={(Event)=>handleClick(Event)}>科幻经典</Link>
-                <Link to={''} onClick={(Event)=>handleClick(Event)}>科幻经典</Link>
-                <Link to={''} onClick={(Event)=>handleClick(Event)}>科幻经典</Link>
-                <Link to={''} onClick={(Event)=>handleClick(Event)}>科幻经典</Link>
-                <Link to={''} onClick={(Event)=>handleClick(Event)}>科幻经典</Link>
-                <Link to={''} onClick={(Event)=>handleClick(Event)}>科幻经典</Link>
-                <Link to={''} onClick={(Event)=>handleClick(Event)}>科幻经典</Link>
-                <Link to={''} onClick={(Event)=>handleClick(Event)}>科幻经典</Link>
-                <Link to={''} onClick={(Event)=>handleClick(Event)}>科幻经典</Link>
-                <Link to={''} onClick={(Event)=>handleClick(Event)}>科幻经典</Link>
-                <Link to={''} onClick={(Event)=>handleClick(Event)}>科幻经典</Link>
-                <Link to={''} onClick={(Event)=>handleClick(Event)}>科幻经典</Link>
-                <Link to={''} onClick={(Event)=>handleClick(Event)}>科幻经典</Link>
-                <Link to={''} onClick={(Event)=>handleClick(Event)}>科幻经典</Link>
-                <Link to={''} onClick={(Event)=>handleClick(Event)}>科幻经典</Link>
+                <Link to={''} onClick={(Event)=>handleClick(Event)}>都市言情</Link>
+                <Link to={''} onClick={(Event)=>handleClick(Event)}>悬疑推理</Link>
+                <Link to={''} onClick={(Event)=>handleClick(Event)}>啊啊啊啊</Link>
+                <Link to={''} onClick={(Event)=>handleClick(Event)}>是是是是</Link>
+                <Link to={''} onClick={(Event)=>handleClick(Event)}>懂的懂的</Link>
+                <Link to={''} onClick={(Event)=>handleClick(Event)}>反反复复</Link>
+                <Link to={''} onClick={(Event)=>handleClick(Event)}>灌灌灌灌</Link>
+                <Link to={''} onClick={(Event)=>handleClick(Event)}>哈哈哈哈</Link>
+                <Link to={''} onClick={(Event)=>handleClick(Event)}>斤斤计较</Link>
+                <Link to={''} onClick={(Event)=>handleClick(Event)}>啛啛喳喳</Link>
+                <Link to={''} onClick={(Event)=>handleClick(Event)}>详细信息</Link>
+                <Link to={''} onClick={(Event)=>handleClick(Event)}>钻着钻着</Link>
+                <Link to={''} onClick={(Event)=>handleClick(Event)}>男男女女</Link>
+                <Link to={''} onClick={(Event)=>handleClick(Event)}>以以以以</Link>
+                <Link to={''} onClick={(Event)=>handleClick(Event)}>吞吞吐吐</Link>
+                <Link to={''} onClick={(Event)=>handleClick(Event)}>柔柔弱弱</Link>
+                <Link to={''} onClick={(Event)=>handleClick(Event)}>额鹅鹅鹅</Link>
             </div>
         </div>
         <ul className="sort-content">
