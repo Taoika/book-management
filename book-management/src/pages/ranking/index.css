@@ -11,7 +11,7 @@ i {
 .Ranking {
     position: absolute;
     left: 50%;
-    transform: translateX(-75%);
+    transform: translateX(-40%);
     margin-top: 10px;
 }
 

@@ -8,9 +8,12 @@ i {
 }
 
 .Bookdetail {
-    position: absolute;
+    /* position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); */
+    position: relative;
+    width: 800px;
+    margin: 0 auto;
 }
 
 .Bookdetail-top {
@@ -102,15 +105,15 @@ i {
 .Bookdetail-label {
     position: absolute;
     top: 7px;
-    left: 120px;
+    left: 160px;
 }
 
 .Bookdetail-tag {
     position: absolute;
     width: 72px;
     height: 20px;
-    left: 84px;
-    top: 182px;
+    left: 40px;
+    top: 145px;
     font-family: 'Microsoft YaHei';
     font-style: normal;
     font-weight: 400;
@@ -178,7 +181,7 @@ i {
 
 .Bookdetail-imf {
     position: absolute;
-    left: 562px;
+    right: -10px;
     top: 145px;
 }
 

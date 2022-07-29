@@ -14,9 +14,9 @@ export default function Person() {
     const navigate = useNavigate()
 
     const [messages1] = useState([
-		{id:'001',cover:{book},title:'龙族',point:'9.0',author:'江南',tag:'玄幻精品'},
-		{id:'002',cover:{book},title:'龙族合集',point:'9.0',author:'江南',tag:'玄幻精品'},
-        {id:'003',cover:{book},title:'龙族',point:'9.0',author:'江南',tag:'玄幻精品'},
+		{index:'001',cover:{book},title:'龙族',point:'9.0',author:'江南',tag:'玄幻精品'},
+		{index:'002',cover:{book},title:'龙族合集',point:'9.0',author:'江南',tag:'玄幻精品'},
+        {index:'003',cover:{book},title:'龙族',point:'9.0',author:'江南',tag:'玄幻精品'},
 	])
 
     function showDetail(m){
@@ -69,7 +69,7 @@ export default function Person() {
                 {
                     messages1.map((m)=>{
                         return (
-                            <li key={m.id}>
+                            <li key={m.index}>
                                 <div className="person-book" onClick={()=>showDetail(m)}>
                                     <img src={book} alt="龙族合集" width='216px' height='288px'/>
                                     <div className="person-book-titleAndPonit">
@@ -102,7 +102,7 @@ export default function Person() {
                 {
                     messages1.map((m)=>{
                         return (
-                            <li key={m.id}>
+                            <li key={m.index}>
                                 <div className="person-book" onClick={()=>showDetail(m)}>
                                     <img src={book} alt="龙族合集" width='216px' height='288px'/>
                                     <div className="person-book-titleAndPonit">

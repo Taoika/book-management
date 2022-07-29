@@ -63,6 +63,10 @@
     overflow: hidden;
 }
 
+.home-book>img:hover {
+    cursor: pointer;
+}
+
 .home-book-titleAndPonit {
     display: flex;
     flex-wrap: wrap;

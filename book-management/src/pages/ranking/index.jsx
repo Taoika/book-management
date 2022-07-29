@@ -34,7 +34,7 @@ export default function Ranking() {
             <List
                 grid={{
                     gutter: 506,
-                    column: 2,
+                    column: 1,
                 }}
                 className='Ranking-list'
                 // itemLayout="vertical"
@@ -46,11 +46,6 @@ export default function Ranking() {
                     pageSize: 10,
                 }}
                 dataSource={data}
-                footer={
-                    <div>
-                        <b>ant design</b> footer part
-                    </div>
-                }
                 renderItem={(item) => (
                     <List.Item
                         key={item.title}
