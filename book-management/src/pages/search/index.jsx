@@ -1,10 +1,12 @@
 import { Pagination} from 'antd';
 import React from 'react'
+import {useState } from 'react'
 import {Link,useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import './index.css'
 
-export default function Sort() {
+export default function Search() {
+
     // 从浏览器获取用户id
     let patent = JSON.parse(localStorage.getItem('book-management-patent'));
     const user_id=patent.user_id;
@@ -59,8 +61,9 @@ export default function Sort() {
     // 发送请求 获取数据 message状态改变 渲染页面
     // 分页状况改变 改变页面 改变分页器
     React.useEffect(()=>{
+        console.log('tag属性改变了');
         // 被选中的标签变换底色
-        const tags=document.querySelectorAll(`.sort-tag>li`);
+        const tags=document.querySelectorAll(`.search-tag>span`);
         for(const i of tags){
             i.style.backgroundColor='#d9d9d9'
             if(i.innerHTML===tag){
@@ -68,12 +71,13 @@ export default function Sort() {
             }     
         }
         // 发送请求
-        axios.post('http://localhost:8000/sort',JSON.stringify({
+        axios.post('http://localhost:8000/search',JSON.stringify({
             user_id:user_id,
-            tag:tag,
+            tag:tag.innerHTML,
           }))
           .then(
             (response)=>{
+                console.log(response.data);
                 setMessage(response.data.message);
                 setCount({
                     minValue:0,
@@ -92,48 +96,32 @@ export default function Sort() {
         setTag(Event.target.innerHTML);
     }
 
-
-    return (
-      <div className="sort">
-        <div className="sort-head">
-            <div className="sort-title">标签选择</div>
-            <ul className="sort-tag">
+  return (
+    <div className="search">
+        <div className="search-head">
+            <div className="search-title">为您搜索出xxx条结果</div>
+            <ul className="search-tag">
                 <li onClick={(Event)=>handleClick(Event)}>科幻经典</li>
                 <li onClick={(Event)=>handleClick(Event)}>都市言情</li>
                 <li onClick={(Event)=>handleClick(Event)}>悬疑推理</li>
-                <li onClick={(Event)=>handleClick(Event)}>啊啊啊啊</li>
-                <li onClick={(Event)=>handleClick(Event)}>是是是是</li>
-                <li onClick={(Event)=>handleClick(Event)}>懂的懂的</li>
-                <li onClick={(Event)=>handleClick(Event)}>反反复复</li>
-                <li onClick={(Event)=>handleClick(Event)}>灌灌灌灌</li>
-                <li onClick={(Event)=>handleClick(Event)}>哈哈哈哈</li>
-                <li onClick={(Event)=>handleClick(Event)}>斤斤计较</li>
-                <li onClick={(Event)=>handleClick(Event)}>啛啛喳喳</li>
-                <li onClick={(Event)=>handleClick(Event)}>详细信息</li>
-                <li onClick={(Event)=>handleClick(Event)}>钻着钻着</li>
-                <li onClick={(Event)=>handleClick(Event)}>男男女女</li>
-                <li onClick={(Event)=>handleClick(Event)}>以以以以</li>
-                <li onClick={(Event)=>handleClick(Event)}>吞吞吐吐</li>
-                <li onClick={(Event)=>handleClick(Event)}>柔柔弱弱</li>
-                <li onClick={(Event)=>handleClick(Event)}>额鹅鹅鹅</li>
             </ul>
         </div>
-        <ul className="sort-content">
+        <ul className="search-content">
             { 
                 // 根据message状态动态生成数据 
                 message.slice(count.minValue,count.maxValue).map((m)=>{
                     return (
                         <li key={m.index}>
                             {/* 注意这里的传参位置 第一个是箭头函数 返回一个函数的调用 此函数调用传进参数m */}
-                            <div className="sort-book" onClick={()=>showDetail(m)}>
+                            <div className="search-book" onClick={()=>showDetail(m)}>
                                 <img src={m.cover} alt={m.title} width='216px' height='288px'/>
-                                <div className="sort-book-nameAndScore">
-                                    <div className="sort-book-name">{m.title}</div>
-                                    <div className="sort-book-score">{m.point}</div>
+                                <div className="search-book-nameAndScore">
+                                    <div className="search-book-name">{m.title}</div>
+                                    <div className="search-book-score">{m.point}</div>
                                 </div>
-                                <div className="sort-book-authorAndType">
-                                    <div className="sort-book-author">{m.author} 著</div>
-                                    <div className="sort-book-type">{m.tag}</div>
+                                <div className="search-book-authorAndType">
+                                    <div className="search-book-author">{m.author} 著</div>
+                                    <div className="search-book-type">{m.tag}</div>
                                 </div>
                             </div>
                         </li>
@@ -151,6 +139,6 @@ export default function Sort() {
             // 当前页数与page状态保持一致
             current={page}
         />
-      </div>
-    )
+    </div>
+  )
 }

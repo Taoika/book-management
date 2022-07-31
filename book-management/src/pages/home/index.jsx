@@ -8,17 +8,9 @@ import book from './images/龙族合集.png'
 
 export default function Home() {
 
-    // 删除指定key的本地存储信息
-    // localStorage.removeItem('patent')
-
     // 从浏览器获取用户id
     let patent = JSON.parse(localStorage.getItem('book-management-patent'));
     const user_id=patent.user_id;
-
-    // 将用户id存储到本地
-    // localStorage.setItem('book-management-patent', JSON.stringify({
-    //     user_id:'1',
-    // }))
 
     const [hot,setHot]=React.useState([]);
     const [guess,setGuess]=React.useState([]);
@@ -39,30 +31,7 @@ export default function Home() {
               })
     },[]);
 
-    // 发送请求
-   
-
     const navigate = useNavigate()
-    const [messages1] = useState([
-		{index:'001',cover:'https://img2.baidu.com/it/u=895482900,4056576822&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=711',title:'龙族',point:'9.0',author:'江南',tag:'玄幻精品'},
-		{index:'002',cover:'https://img2.baidu.com/it/u=895482900,4056576822&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=711',title:'龙族合集',point:'9.0',author:'江南',tag:'玄幻精品'},
-        {index:'003',cover:'https://img2.baidu.com/it/u=895482900,4056576822&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=711',title:'龙族',point:'9.0',author:'江南',tag:'玄幻精品'},
-        {index:'004',cover:'https://img2.baidu.com/it/u=895482900,4056576822&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=711',title:'龙族',point:'9.0',author:'江南',tag:'玄幻精品'},
-        {index:'005',cover:'https://img2.baidu.com/it/u=895482900,4056576822&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=711',title:'龙族',point:'9.0',author:'江南',tag:'玄幻精品'},
-	])
-
-    const [messages2] = useState([
-		{index:'001',cover:'https://img2.baidu.com/it/u=895482900,4056576822&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=711',title:'龙族',point:'9.0',author:'江南',tag:'玄幻精品'},
-		{index:'002',cover:'https://img2.baidu.com/it/u=895482900,4056576822&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=711',title:'龙族合集',point:'9.0',author:'江南',tag:'玄幻精品'},
-        {index:'003',cover:'https://img2.baidu.com/it/u=895482900,4056576822&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=711',title:'龙族',point:'9.0',author:'江南',tag:'玄幻精品'},
-        {index:'004',cover:'https://img2.baidu.com/it/u=895482900,4056576822&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=711',title:'龙族',point:'9.0',author:'江南',tag:'玄幻精品'},
-        {index:'005',cover:'https://img2.baidu.com/it/u=895482900,4056576822&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=711',title:'龙族',point:'9.0',author:'江南',tag:'玄幻精品'},
-        {index:'006',cover:'https://img2.baidu.com/it/u=895482900,4056576822&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=711',title:'龙族',point:'9.0',author:'江南',tag:'玄幻精品'},
-        {index:'007',cover:'https://img2.baidu.com/it/u=895482900,4056576822&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=711',title:'龙族',point:'9.0',author:'江南',tag:'玄幻精品'},
-        {index:'008',cover:'https://img2.baidu.com/it/u=895482900,4056576822&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=711',title:'龙族',point:'9.0',author:'江南',tag:'玄幻精品'},
-        {index:'009',cover:'https://img2.baidu.com/it/u=895482900,4056576822&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=711',title:'龙族',point:'9.0',author:'江南',tag:'玄幻精品'},
-        {index:'010',cover:'https://img2.baidu.com/it/u=895482900,4056576822&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=711',title:'龙族合集',point:'9.0',author:'江南',tag:'玄幻精品'},
-	])
 
     function showDetail(m){
 		navigate('/bookdetail',{

@@ -16,7 +16,7 @@ export default class Nav extends Component {
                 </ul>
                 <div className="nav-right">
                     <div className="nav-search">
-                        <button><img src={searchIcon} alt="搜索" width='16px'/></button>
+                        <button><Link to='/search'><img src={searchIcon} alt="搜索" width='16px'/></Link></button>
                         <input type="text" placeholder='搜索'/>
                     </div>
                     <Link to='/person' className="nav-user-icon">
