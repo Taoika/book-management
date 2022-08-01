@@ -8,9 +8,15 @@ import book from './images/龙族合集.png'
 
 export default function Home() {
 
-    // 从浏览器获取用户id
-    let patent = JSON.parse(localStorage.getItem('book-management-patent'));
-    const user_id=patent.user_id;
+    // localStorage.setItem('bookManagement', JSON.stringify({
+    //     user_id:1,
+    //     user_name:'kkt',
+    // }))
+
+    // 从浏览器获取user_id user_name
+    let bookManagement = JSON.parse(localStorage.getItem('bookManagement'));
+    const user_id=bookManagement.user_id;
+    const user_name=bookManagement.user_name;
 
     const [hot,setHot]=React.useState([]);
     const [guess,setGuess]=React.useState([]);
@@ -18,7 +24,22 @@ export default function Home() {
     // 用React.useEffect来进行state的设置 避免了重复刷新的问题 注意第二个参数得是一个空数组
     // 这样它就不会监听任何东西了
     React.useEffect(()=>{
-        axios.post('http://localhost:8000/home',JSON.stringify({
+        // axios({
+        //     method: 'GET',
+        //     url: 'https://5v686c5039.goho.co',
+        //     params:{
+        //         user:user_name,
+        //     },
+        //   }).then(
+        //     response => {
+        //         console.log(response);
+        //     },
+        //     error => {
+        //       console.log(error);
+        //     }
+        //   )
+        //   自己的后台
+        axios.post('http://127.0.0.1:8000/home',JSON.stringify({
             user_id:user_id,
           }))
           .then(
@@ -37,7 +58,7 @@ export default function Home() {
 		navigate('/bookdetail',{
 			replace:false,
 			state:{
-				id:m.id,
+				book:m
 			}
 		})
 	}

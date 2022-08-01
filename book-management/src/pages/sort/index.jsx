@@ -5,9 +5,10 @@ import axios from 'axios'
 import './index.css'
 
 export default function Sort() {
-    // 从浏览器获取用户id
-    let patent = JSON.parse(localStorage.getItem('book-management-patent'));
-    const user_id=patent.user_id;
+    // 从浏览器获取user_id user_name
+    let bookManagement = JSON.parse(localStorage.getItem('bookManagement'));
+    const user_id=bookManagement.user_id;
+    const user_name=bookManagement.user_name;
 
     // message状态存放有后台传输进来的信息
     const [message,setMessage]=React.useState([]);
@@ -67,6 +68,22 @@ export default function Sort() {
                 i.style.backgroundColor='#773D31'
             }     
         }
+        //向远程服务器发送请求
+        // axios({
+        //     method: 'GET',
+        //     url: 'https://5v686c5039.goho.co',
+        //     params:{
+        //         user:user_name,
+        //         kind:tag,
+        //     },
+        //   }).then(
+        //     response => {
+        //         console.log(response);
+        //     },
+        //     error => {
+        //       console.log(error);
+        //     }
+        //   )
         // 发送请求
         axios.post('http://localhost:8000/sort',JSON.stringify({
             user_id:user_id,
@@ -84,6 +101,7 @@ export default function Sort() {
             (error)=>{
                 console.log(error);
               })
+
     },[tag])
 
     // 处理标签点击

@@ -1,62 +1,52 @@
 /* 分类界面 */
-.search {
+.collectionAndHistory {
     width: 1200px;
     margin: 0 auto;
     background-color: #F4F4F4;
 }
 
 /* 分类头部 */
-.search-head {
+.collectionAndHistory-head {
     width: 1200px;
     box-sizing: border-box;
     margin: 0 auto 20px;
-    padding: 20px 20px 15px 20px ;
+    padding: 25px 20px 15px 20px ;
     background-color: #FCFCFC;
 }
 
-.search-title {
-    margin: 13px;
-    font-size: 24px;
-    font-weight: 700;
-    color: #000;
-}
-
-.search-tag {
+.collectionAndHistory-tag {
     display: flex;
     flex-wrap: wrap;
     justify-content: start;
     width: 1100px;
-    margin-left: 10px;
+    margin-left: 50px;
 }
 
-.search-tag>li {
-    width: 100px;
+.collectionAndHistory-tag>li {
     height: 24px;
-    border-radius: 12px;
-    margin: 0 20px 5px 0;
-    font-size: 14px;
-    text-align: center;
+    margin: 0 20px 0 0;
+    font-weight: 400;
+    font-size: 24px;
     line-height: 24px;
-    color: #FCFCFC;
-    background-color: #d9d9d9;
+    color: rgba(16, 16, 16, 1);
+    background-color: rgba(252, 252, 252, 1)!important;
 }
 
-.search-tag>li:hover {
+.collectionAndHistory-tag>li:hover {
     cursor: pointer;
-    background-color: #773D31;
+    font-weight: 700;
+    color: #773D31;
 }
 
 /* 内容框 */
 
-.search-content {
+.collectionAndHistory-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 1140px;
-    margin: 0 auto;
 }
 
-.search-book {
+.collectionAndHistory-book {
     width: 216px;
     box-sizing: border-box;
     border-radius: 10px;
@@ -64,30 +54,30 @@
     overflow: hidden;
 }
 
-.search-book:hover {
+.collectionAndHistory-book:hover {
     cursor: pointer;
 }
 
-.search-book-nameAndScore {
+.collectionAndHistory-book-nameAndScore {
     display: flex;
     flex-wrap: wrap;
     justify-content:space-between;
     padding: 10px 16px 0 12px;
 }
 
-.search-book-name {
+.collectionAndHistory-book-name {
     font-size: 14px;
     font-weight: 700;
     color:#101010
 }
 
-.search-book-score {
+.collectionAndHistory-book-score {
     font-weight: 700;
     font-size: 16px;
     color: #FEBA07;
 }
 
-.search-book-authorAndType {
+.collectionAndHistory-book-authorAndType {
     display: flex;
     flex-wrap: wrap;
     justify-content:space-between;
@@ -95,12 +85,12 @@
     font-size: 12px;
 }
 
-.search-book-author {
+.collectionAndHistory-book-author {
     font-size: 12px;
     color: #101010;
 }
 
-.search-book-type {
+.collectionAndHistory-book-type {
     width: 72px;
     height: 20px;
     border-radius: 10px;
@@ -110,7 +100,7 @@
     background-color: #773D31;
 }
 
-.search-guessYouLike>.search-book {
+.collectionAndHistory-guessYouLike>.collectionAndHistory-book {
     margin-bottom: 20px;
 }
 

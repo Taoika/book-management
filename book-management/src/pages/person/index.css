@@ -115,6 +115,10 @@
     color: black;
 }
 
+.person-content-head-right:hover {
+    cursor: pointer;
+}
+
 .person-content-head-right>img {
     vertical-align: calc(-3px);
 }

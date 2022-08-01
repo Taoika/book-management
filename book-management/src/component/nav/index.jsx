@@ -1,11 +1,22 @@
 import React, { Component } from 'react'
-import {Link,Outlet} from 'react-router-dom'
+import {Link,Outlet,useNavigate} from 'react-router-dom'
 import './index.css'
 import userIcon from './images/CATIA.jpg'
 import searchIcon from './images/搜索.png'
 
-export default class Nav extends Component {
-  render() {
+export default function Nav() {
+
+    const navigate=useNavigate();
+    function toSearch(){
+        navigate('/search')
+    }
+
+    // search实时接受搜索框内容
+    const searchRef=React.useRef();
+
+    function Search(){
+        console.log(searchRef.current.value);
+    }
     return (
         <div className="nav-container">
             <div className="nav">
@@ -16,10 +27,12 @@ export default class Nav extends Component {
                 </ul>
                 <div className="nav-right">
                     <div className="nav-search">
-                        <button><Link to='/search'><img src={searchIcon} alt="搜索" width='16px'/></Link></button>
-                        <input type="text" placeholder='搜索'/>
+                        <button><div onClick={toSearch}><img src={searchIcon} alt="搜索" width='16px'/></div></button>
+                        <input ref={searchRef} type="text"  placeholder='搜索' />
                     </div>
-                    <Link to='/person' className="nav-user-icon">
+                    {/* 点击用户头像的地方的时候 要验证是否登录 已登录切换到用户个人信息页面
+                    若尚未登录 则弹出登录界面 */}
+                    <Link to='/login' className="nav-user-icon">
                         <img src={userIcon} alt="用户头像" width='40px'/>
                     </Link>
                 </div>
@@ -27,5 +40,4 @@ export default class Nav extends Component {
             <Outlet/>
         </div>
     )
-  }
 }

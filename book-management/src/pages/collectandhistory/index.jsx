@@ -1,24 +1,19 @@
 import { Pagination} from 'antd';
 import React from 'react'
-import {useState } from 'react'
 import {Link,useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import './index.css'
 
-export default function Search(props) {
-
-    console.log(props);
-
-    // 从浏览器获取user_id user_name
+export default function Collectandhistory() {
+    // 从浏览器获取用户id
     let bookManagement = JSON.parse(localStorage.getItem('bookManagement'));
     const user_id=bookManagement.user_id;
-    const user_name=bookManagement.user_name;
 
     // message状态存放有后台传输进来的信息
     const [message,setMessage]=React.useState([]);
 
     // 刚进入页面的时候设置一个tag状态
-    const [tag,setTag]=React.useState('评分最高');
+    const [tag,setTag]=React.useState('收藏');
 
     // 当数据源改变 初始化分页器状态
     const [page,setPage]=React.useState(1);
@@ -65,21 +60,22 @@ export default function Search(props) {
     // 分页状况改变 改变页面 改变分页器
     React.useEffect(()=>{
         // 被选中的标签变换底色
-        const tags=document.querySelectorAll(`.search-tag>li`);
+        const tags=document.querySelectorAll(`.collectionAndHistory-tag>li`);
         for(const i of tags){
-            i.style.backgroundColor='#d9d9d9'
+            i.style.color='rgba(16, 16, 16, 1)';
+            i.style.fontWeight=400;
             if(i.innerHTML===tag){
-                i.style.backgroundColor='#773D31'
+                i.style.color='#773D31'
+                i.style.fontWeight=700;
             }     
         }
         // 发送请求
-        axios.post('http://localhost:8000/search',JSON.stringify({
+        axios.post('http://localhost:8000/sort',JSON.stringify({
             user_id:user_id,
-            tag:tag.innerHTML,
+            tag:tag,
           }))
           .then(
             (response)=>{
-                // console.log(response.data);
                 setMessage(response.data.message);
                 setCount({
                     minValue:0,
@@ -98,32 +94,31 @@ export default function Search(props) {
         setTag(Event.target.innerHTML);
     }
 
-  return (
-    <div className="search">
-        <div className="search-head">
-            <div className="search-title">为您搜索出xxx条结果</div>
-            <ul className="search-tag">
-                <li onClick={(Event)=>handleClick(Event)}>评分最高</li>
-                <li onClick={(Event)=>handleClick(Event)}>阅读人数</li>
-                <li onClick={(Event)=>handleClick(Event)}>最新发布</li>
+
+    return (
+      <div className="collectionAndHistory">
+        <div className="collectionAndHistory-head">
+            <ul className="collectionAndHistory-tag">
+                <li onClick={(Event)=>handleClick(Event)}>收藏</li>
+                <li onClick={(Event)=>handleClick(Event)}>历史浏览</li>
             </ul>
         </div>
-        <ul className="search-content">
+        <ul className="collectionAndHistory-content">
             { 
                 // 根据message状态动态生成数据 
                 message.slice(count.minValue,count.maxValue).map((m)=>{
                     return (
                         <li key={m.index}>
                             {/* 注意这里的传参位置 第一个是箭头函数 返回一个函数的调用 此函数调用传进参数m */}
-                            <div className="search-book" onClick={()=>showDetail(m)}>
+                            <div className="collectionAndHistory-book" onClick={()=>showDetail(m)}>
                                 <img src={m.cover} alt={m.title} width='216px' height='288px'/>
-                                <div className="search-book-nameAndScore">
-                                    <div className="search-book-name">{m.title}</div>
-                                    <div className="search-book-score">{m.point}</div>
+                                <div className="collectionAndHistory-book-nameAndScore">
+                                    <div className="collectionAndHistory-book-name">{m.title}</div>
+                                    <div className="collectionAndHistory-book-score">{m.point}</div>
                                 </div>
-                                <div className="search-book-authorAndType">
-                                    <div className="search-book-author">{m.author} 著</div>
-                                    <div className="search-book-type">{m.tag}</div>
+                                <div className="collectionAndHistory-book-authorAndType">
+                                    <div className="collectionAndHistory-book-author">{m.author} 著</div>
+                                    <div className="collectionAndHistory-book-type">{m.tag}</div>
                                 </div>
                             </div>
                         </li>
@@ -141,6 +136,6 @@ export default function Search(props) {
             // 当前页数与page状态保持一致
             current={page}
         />
-    </div>
-  )
+      </div>
+    )
 }
