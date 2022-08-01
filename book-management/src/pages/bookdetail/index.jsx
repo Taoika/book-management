@@ -1,4 +1,4 @@
-import React, { useState, createElement } from 'react'
+import React, { useState, createElement, useEffect } from 'react'
 import {
     MessageFilled, LikeFilled, StarFilled,
 } from '@ant-design/icons';
@@ -55,25 +55,43 @@ export default function Bookdetail() {
         </Comment>
     );
     // 发表评论
+    const arr1 = [1, 2, 2, 4, 1, 1, 2];
+
     const [comments, setComments] = useState([]);
     const [submitting, setSubmitting] = useState(false);
     const [value, setValue] = useState('');
 
+    React.useEffect(() => {
+        //发请求渲染
+        setComments(arr1.map((x, i) => {
+            return ({
+                uthor: 'Han Solo',//用户名
+                avatar: 'https://joeschmoe.io/api/v1/random',
+                content: <p>{value}</p>,
+                datetime: moment().fromNow(),
+            })
+        }))
+    }, [])
+
+
+
     const handleSubmit = () => {
         if (!value) return;
         setSubmitting(true);
+        //存数据
         setTimeout(() => {
             setSubmitting(false);
             setValue('');
             setComments([
                 ...comments,
                 {
-                    author: 'Han Solo',
+                    author: 'Han Solo',//用户名
                     avatar: 'https://joeschmoe.io/api/v1/random',
                     content: <p>{value}</p>,
                     datetime: moment().fromNow(),
                 },
             ]);
+            console.log(value);
         }, 1000);
     };
 
@@ -167,42 +185,6 @@ export default function Bookdetail() {
             </div>
             {/* 第四模块 */}
             <div className='Bookdetail-comment'>
-
-                <ExampleComment>
-                    <ExampleComment>
-                        <ExampleComment />
-                        <>
-                            {comments.length > 0 && <CommentList comments={comments} />}
-                            <Comment
-                                avatar={<Avatar src="https://joeschmoe.io/api/v1/random" alt="Han Solo" />}
-                                content={
-                                    <Editor
-                                        onChange={handleChange}
-                                        onSubmit={handleSubmit}
-                                        submitting={submitting}
-                                        value={value}
-                                    />
-                                }
-                            />
-                        </>
-                        <ExampleComment />
-                    </ExampleComment>
-
-                </ExampleComment>
-
-
-                <ExampleComment>
-                    <ExampleComment>
-                        <ExampleComment />
-                        <ExampleComment />
-                    </ExampleComment>
-                </ExampleComment>
-                <ExampleComment>
-                    <ExampleComment>
-                        <ExampleComment />
-                        <ExampleComment />
-                    </ExampleComment>
-                </ExampleComment>
                 <>
                     {comments.length > 0 && <CommentList comments={comments} />}
                     <Comment
