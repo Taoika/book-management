@@ -5,15 +5,20 @@ import axios from 'axios'
 import './index.css'
 
 export default function Sort() {
-    // 从浏览器获取用户id
-    let patent = JSON.parse(localStorage.getItem('book-management-patent'));
-    const user_id=patent.user_id;
+    
+    // 从浏览器获取user_id user_name
+    let bookManagement = JSON.parse(localStorage.getItem('bookManagement'));
+    const user_id=bookManagement.user_id;
+    const user_name=bookManagement.user_name;
 
     // message状态存放有后台传输进来的信息
     const [message,setMessage]=React.useState([]);
 
     // 刚进入页面的时候设置一个tag状态
-    const [tag,setTag]=React.useState('科幻经典');
+    const [tag,setTag]=React.useState('文学历史');
+    
+    // 转化为数字tag
+    const [numTag,setNumTag]=React.useState('1');
 
     // 当数据源改变 初始化分页器状态
     const [page,setPage]=React.useState(1);
@@ -55,6 +60,8 @@ export default function Sort() {
         })
     }
 
+
+    // 1-文学历史 2-艺术经典 3-哲学心理 4-科学科技 5- 生活医学 6-杂志情感 7- 科幻玄幻 8-成长教育 9-财经军事 10 -名著传统
     // tag属状态改变 标签底色改变 
     // 发送请求 获取数据 message状态改变 渲染页面
     // 分页状况改变 改变页面 改变分页器
@@ -67,29 +74,52 @@ export default function Sort() {
                 i.style.backgroundColor='#773D31'
             }     
         }
-        // 发送请求
-        axios.post('http://localhost:8000/sort',JSON.stringify({
-            user_id:user_id,
-            tag:tag,
-          }))
-          .then(
-            (response)=>{
-                setMessage(response.data.message);
-                setCount({
-                    minValue:0,
-                    maxValue:15
-                })
-                setPage(1);
+        //向远程服务器发送请求
+        axios({
+            method: 'GET',
+            url: 'https://5v686c5039.goho.co',
+            params:{
+                user:user_name,
+                kind:numTag,
             },
-            (error)=>{
-                console.log(error);
-              })
+          }).then(
+            response => {
+                console.log(response);
+            },
+            error => {
+              console.log(error);
+            }
+          )
+        // 发送请求
+        // axios.post('http://localhost:8000/sort',JSON.stringify({
+        //     user_id:user_id,
+        //     tag:tag,
+        //   }))
+        //   .then(
+        //     (response)=>{
+        //         setMessage(response.data.message);
+        //         setCount({
+        //             minValue:0,
+        //             maxValue:15
+        //         })
+        //         setPage(1);
+        //     },
+        //     (error)=>{
+        //         console.log(error);
+        //       })
+
     },[tag])
 
     // 处理标签点击
     function handleClick(Event){
+        // t承载标签
+        let t=Event.target.innerHTML;
         // 设置tag状态
-        setTag(Event.target.innerHTML);
+        setTag(t);
+        // 在这里将文字tag转化为数字tag numT承载数字tag
+        let numT=t=='文学历史'?1:t=='艺术经典'?2:t=='科学科技'?3:t=='生活医学'?4:t=='杂志情感'?5:t=='科幻玄幻'?6:t=='成长教育'?7:t=='财经军事'?8:t=='名著传统'?9:0
+        console.log(numT);
+        setNumTag(numT);
     }
 
 
@@ -98,24 +128,15 @@ export default function Sort() {
         <div className="sort-head">
             <div className="sort-title">标签选择</div>
             <ul className="sort-tag">
-                <li onClick={(Event)=>handleClick(Event)}>科幻经典</li>
-                <li onClick={(Event)=>handleClick(Event)}>都市言情</li>
-                <li onClick={(Event)=>handleClick(Event)}>悬疑推理</li>
-                <li onClick={(Event)=>handleClick(Event)}>啊啊啊啊</li>
-                <li onClick={(Event)=>handleClick(Event)}>是是是是</li>
-                <li onClick={(Event)=>handleClick(Event)}>懂的懂的</li>
-                <li onClick={(Event)=>handleClick(Event)}>反反复复</li>
-                <li onClick={(Event)=>handleClick(Event)}>灌灌灌灌</li>
-                <li onClick={(Event)=>handleClick(Event)}>哈哈哈哈</li>
-                <li onClick={(Event)=>handleClick(Event)}>斤斤计较</li>
-                <li onClick={(Event)=>handleClick(Event)}>啛啛喳喳</li>
-                <li onClick={(Event)=>handleClick(Event)}>详细信息</li>
-                <li onClick={(Event)=>handleClick(Event)}>钻着钻着</li>
-                <li onClick={(Event)=>handleClick(Event)}>男男女女</li>
-                <li onClick={(Event)=>handleClick(Event)}>以以以以</li>
-                <li onClick={(Event)=>handleClick(Event)}>吞吞吐吐</li>
-                <li onClick={(Event)=>handleClick(Event)}>柔柔弱弱</li>
-                <li onClick={(Event)=>handleClick(Event)}>额鹅鹅鹅</li>
+                <li onClick={(Event)=>handleClick(Event)}>文学历史</li>
+                <li onClick={(Event)=>handleClick(Event)}>艺术经典</li>
+                <li onClick={(Event)=>handleClick(Event)}>科学科技</li>
+                <li onClick={(Event)=>handleClick(Event)}>生活医学</li>
+                <li onClick={(Event)=>handleClick(Event)}>杂志情感</li>
+                <li onClick={(Event)=>handleClick(Event)}>科幻玄幻</li>
+                <li onClick={(Event)=>handleClick(Event)}>成长教育</li>
+                <li onClick={(Event)=>handleClick(Event)}>财经军事</li>
+                <li onClick={(Event)=>handleClick(Event)}>名著传统</li>
             </ul>
         </div>
         <ul className="sort-content">

@@ -1,0 +1,88 @@
+/* 注册栏的容器 大小为全屏 主要用处是为注册栏提供相对定位 */
+.register-container {
+    position: relative;
+}
+
+/* 注册栏 */
+.register {
+    position: absolute;
+    left: 50%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    height: 280px;
+    width: 487px;
+    border-radius: 20px;
+    background-color: rgba(84, 49, 42, 1);
+    transform: translate(-50%,30%);
+}
+
+/* 登陆栏左侧 */
+.register-left {
+    box-sizing: border-box;
+    width: 193px;
+    height: 280px;
+    padding: 15px 0 0 0;
+    text-align: center;
+}
+
+.register-title {
+    margin-bottom: 5px;
+    font-size: 40px;
+    font-weight: 700;
+    color:rgba(252, 252, 252, 1);
+}
+
+.register-content {
+    margin-bottom: 58px;
+    font-size: 12px;
+    color:rgba(252, 252, 252, 1);
+}
+
+/* 登陆栏左右侧 */
+.register-right {
+    box-sizing: border-box;
+    width: 294px;
+    height: 280px;
+    padding: 8px 20px 0 20px;
+    border-radius: 0 20px 20px 0;
+    background-color: #FCFCFC;
+    text-align: center;
+}
+
+.register-right-title {
+    display: flex;
+    justify-content: start;
+    margin-bottom: 8px;
+    font-size: 20px;
+    color: #101010;
+}
+
+.register-right-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.register-right-content>input {
+    box-sizing: border-box;
+    width: 254px;
+    height: 34px;
+    border-radius: 4px;
+    padding-left: 10px;
+    outline: none;
+    border: 1px solid rgba(0,0,0,.01);
+    margin-bottom: 5px;
+    color: #979797;
+    font-size: 14px;
+    background: #E1E1E1;
+}
+
+.register-right-content>button {
+    width: 100px;
+    height: 32px;
+    border-radius: 8px;
+    color: #FCFCFC;
+    background-color: #773D31;
+}

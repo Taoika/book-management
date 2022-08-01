@@ -1,0 +1,111 @@
+/* 登录栏的容器 大小为全屏 主要用处是为登录栏提供相对定位 */
+.login-container {
+    position: relative;
+}
+
+/* 登录栏 */
+.login {
+    position: absolute;
+    left: 50%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    height: 280px;
+    width: 487px;
+    border-radius: 20px;
+    background-color: rgba(84, 49, 42, 1);
+    transform: translate(-50%,30%);
+}
+
+/* 登陆栏左侧 */
+.login-left {
+    box-sizing: border-box;
+    width: 193px;
+    height: 280px;
+    padding: 15px 0 0 0;
+    text-align: center;
+}
+
+.login-title {
+    margin-bottom: 5px;
+    font-size: 40px;
+    font-weight: 700;
+    color:rgba(252, 252, 252, 1);
+}
+
+.login-content {
+    margin-bottom: 58px;
+    font-size: 12px;
+    color:rgba(252, 252, 252, 1);
+}
+
+/* 登录栏右侧 */
+.login-right {
+    box-sizing: border-box;
+    width: 294px;
+    height: 280px;
+    padding: 38px 27px 0 27px ;
+    border-radius: 0 20px 20px 0;
+    text-align: center;
+    background-color: #FCFCFC;
+}
+
+.login-icon>img {
+    border-radius: 50%;
+    margin-bottom: 26px;
+}
+
+.login-accountAndPassword>input {
+    box-sizing: border-box;
+    width: 240px;
+    height: 32px;
+    padding-left: 15px;
+    border: 1px solid rgba(0,0,0,.1);
+    outline: none;
+}
+
+.login-accountAndPassword>input:nth-child(1){
+    border-radius: 13px 13px 0 0 ;
+}
+
+.login-accountAndPassword>input:nth-child(2){
+    border-radius:0 0 13px 13px;
+    margin-bottom: 4px;
+}
+
+.login-forgetPassword {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    font-size: 12px;
+    margin-bottom: 16px;
+    color: #979797;
+}
+
+.login-forgetPassword:hover {
+    cursor: pointer;
+    color: #773D31;
+}
+
+.login-registerAndLogin {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.login-registerAndLogin>button {
+    width: 100px;
+    height: 32px;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 32px;
+    color: #101010;
+    background-color: #FCFCFC;
+}
+
+.login-registerAndLogin>button:nth-child(2) {
+    background-color: #773D31;
+    color: #FCFCFC;
+}

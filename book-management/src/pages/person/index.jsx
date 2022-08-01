@@ -28,6 +28,15 @@ export default function Person() {
 		})
 	}
 
+    function showCollectAndHistory(p){
+        navigate('/collectandhistory',{
+            replace:false,
+            state:{
+                id:p,
+            }
+        })
+    }
+
     return (
       <div className="person">
         <div className="person-banner"></div>
@@ -60,9 +69,9 @@ export default function Person() {
                     <img src={star} alt="收藏" width='30px'/>
                     收藏
                 </div>
-                <Link to={''} className="person-content-head-right">
+                <div onClick={showCollectAndHistory} className="person-content-head-right">
                     <img src={more} alt="更多" width='13px'/>
-                </Link>
+                </div>
             </div>
             {/* 书籍内容得从后台动态获取 包括书籍封面 提示信息书名 作者 分类*/}
             <ul className="person-content-body">
@@ -93,9 +102,9 @@ export default function Person() {
                     <img src={history} alt="历史浏览" width='30px'/>
                     历史浏览
                 </div>
-                <Link to={''} className="person-content-head-right">
+                <div onClick={showCollectAndHistory} className="person-content-head-right">
                     <img src={more} alt="更多" width='13px'/>
-                </Link>
+                </div>
             </div>
             {/* 书籍内容得从后台动态获取 包括书籍封面 提示信息书名 作者 分类*/}
             <ul className="person-content-body">

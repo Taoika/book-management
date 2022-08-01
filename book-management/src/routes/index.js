@@ -5,6 +5,10 @@ import Ranking from '../pages/ranking'
 import BookDetail from '../pages/bookdetail'
 import Person from '../pages/person'
 import Search from '../pages/search'
+import Login from '../pages/login'
+import Register from '../pages/register'
+import ForgetPassword from '../pages/forgetPassword' 
+import Collectandhistory from '../pages/collectandhistory'
 
 const routes=[
     {
@@ -30,6 +34,22 @@ const routes=[
     {
         path:'/search',
         element:<Search/>
+    },
+    {
+        path:'/login',
+        element:<Login/>,
+    },
+    {
+        path:'/register',
+        element:<Register/>,
+    },
+    {
+        path:'/forgetPassword',
+        element:<ForgetPassword/>,
+    },
+    {
+        path:'/collectandhistory',
+        element:<Collectandhistory/>,
     },
     {
         path:'',

@@ -60,8 +60,8 @@ i {
 
 .Bookdetail-icon1 {
     position: absolute;
-    left: 294px;
-    top: 126px;
+    left: 292px;
+    top: 130px;
     font-size: 32px;
     color: #773D31;
 }
@@ -75,7 +75,7 @@ i {
 .Bookdetail-icon2 {
     position: absolute;
     left: 385px;
-    top: 126px;
+    top: 127px;
     font-size: 32px;
     color: #d65555cf;
 }
@@ -110,10 +110,11 @@ i {
 
 .Bookdetail-tag {
     position: absolute;
-    width: 72px;
+    /* width: 72px; */
     height: 20px;
+    padding: 0 5px;
     left: 40px;
-    top: 145px;
+    top: 90px;
     font-family: 'Microsoft YaHei';
     font-style: normal;
     font-weight: 400;
@@ -189,14 +190,20 @@ i {
     position: absolute;
     left: 22px;
     top: 235px;
-
     font-family: 'Microsoft YaHei';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
-
     color: #101010;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /*弹性伸缩盒子模型显示*/
+    display: -webkit-box;
+    /*限制在一个块元素显示的文本的行数,行数自己定*/
+    -webkit-line-clamp: 4;
+    /*设置或检索伸缩盒对象的子元素的排列方式*/
+    -webkit-box-orient: vertical;
 
 }
 
@@ -219,13 +226,11 @@ i {
     top: 24px;
     width: 800px;
     left: 137px;
-
     font-family: 'Microsoft YaHei';
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
     line-height: 18px;
-
     color: #000000;
 }
 
@@ -235,14 +240,20 @@ i {
     width: 650px;
     left: 137px;
     height: 178px;
-
     font-family: 'Microsoft YaHei';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
-
     color: #101010;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /*弹性伸缩盒子模型显示*/
+    display: -webkit-box;
+    /*限制在一个块元素显示的文本的行数,行数自己定*/
+    -webkit-line-clamp: 6;
+    /*设置或检索伸缩盒对象的子元素的排列方式*/
+    -webkit-box-orient: vertical;
 }
 
 .Bookdetail-comment {
