@@ -1,13 +1,14 @@
 import { Pagination} from 'antd';
 import React from 'react'
 import {useState } from 'react'
-import {Link,useNavigate} from 'react-router-dom'
+import {Link,useNavigate,useLocation} from 'react-router-dom'
 import axios from 'axios'
 import './index.css'
 
-export default function Search(props) {
+export default function Search() {
 
-    console.log(props);
+    // 存放从搜索栏传进来的信息
+    const state = useLocation().state;
 
     // 从浏览器获取user_id user_name
     let bookManagement = JSON.parse(localStorage.getItem('bookManagement'));
@@ -72,6 +73,22 @@ export default function Search(props) {
                 i.style.backgroundColor='#773D31'
             }     
         }
+        //向远程服务器发送请求
+        // axios({
+        //     method: 'GET',
+        //     url: 'https://5v686c5039.goho.co',
+        //     params:{
+        //         user:user_name,
+        //         find:state.content,
+        //     },
+        //   }).then(
+        //     response => {
+        //         console.log(response);
+        //     },
+        //     error => {
+        //       console.log(error);
+        //     }
+        //   )
         // 发送请求
         axios.post('http://localhost:8000/search',JSON.stringify({
             user_id:user_id,

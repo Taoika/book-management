@@ -8,15 +8,17 @@ export default function Nav() {
 
     const navigate=useNavigate();
     function toSearch(){
-        navigate('/search')
+        console.log(searchRef.current.value);
+        navigate('/search',{
+            state:{
+                content:searchRef.current.value
+            }
+        })
     }
 
     // search实时接受搜索框内容
     const searchRef=React.useRef();
 
-    function Search(){
-        console.log(searchRef.current.value);
-    }
     return (
         <div className="nav-container">
             <div className="nav">
@@ -28,7 +30,7 @@ export default function Nav() {
                 <div className="nav-right">
                     <div className="nav-search">
                         <button><div onClick={toSearch}><img src={searchIcon} alt="搜索" width='16px'/></div></button>
-                        <input ref={searchRef} type="text"  placeholder='搜索' />
+                        <input type="text" placeholder='搜索' ref={searchRef}/>
                     </div>
                     {/* 点击用户头像的地方的时候 要验证是否登录 已登录切换到用户个人信息页面
                     若尚未登录 则弹出登录界面 */}
