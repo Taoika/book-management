@@ -10,8 +10,9 @@ i {
 
 .Ranking {
     position: absolute;
-    left: 50%;
-    transform: translateX(-40%);
+    /* left: 50%;
+    transform: translateX(-40%); */
+    margin-left: 160px;
     margin-top: 10px;
 }
 
@@ -59,7 +60,10 @@ i {
 }
 
 .Ranking-list {
-    margin-top: 50px;
+    position: absolute;
+    top: 40px;
+    left: -400px;
+    /* background-color: pink; */
 }
 
 .Ranking img {
@@ -70,12 +74,19 @@ i {
     border-radius: 8px;
 }
 
+.Ranking-Rank {
+    font-size: 22px;
+    margin-left: -42px;
+    margin-top: -25px;
+    margin-bottom: 14px;
+}
+
 .Ranking .ant-list-item-meta-title {
     position: absolute;
     width: 156px;
     height: 18px;
-    left: 462px;
-    top: 28px;
+    left: 207px;
+    top: 54px;
 
     font-family: 'Microsoft YaHei';
     font-style: normal;
@@ -87,12 +98,29 @@ i {
     color: #101010;
 }
 
+.Ranking-author {
+    margin-left: -42px;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.Ranking-jianjie {
+    font-family: 'Microsoft YaHei';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 5px;
+
+    color: #101010;
+}
+
 .Ranking-text {
     position: absolute;
-    width: 400px;
+    width: 450px;
     height: 48px;
-    left: 482px;
-    top: 61px;
+    left: 240px;
+    top: 171px;
 
     font-family: 'Microsoft YaHei';
     font-style: normal;
@@ -116,4 +144,99 @@ i {
 
 .Ranking .ant-space-item {
     font-size: 22px;
+}
+
+.Ranking-label {
+    position: absolute;
+    top: 63px;
+    left: 30px;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.Ranking-tag {
+    position: absolute;
+    width: 72px;
+    height: 20px;
+    left: 71px;
+    top: 61px;
+    font-family: 'Microsoft YaHei';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height */
+    text-align: center;
+    color: #FCFCFC;
+    background: #773D31;
+    border-radius: 59px;
+}
+
+.Ranking-line {
+    position: absolute;
+    width: 253px;
+    height: -3px;
+    left: 380px;
+    top: -20px;
+
+    border: 0.5px solid #979797;
+    transform: rotate(90deg);
+}
+
+.Ranking-score {
+    position: absolute;
+    width: 55px;
+    height: 48px;
+    left: 600px;
+    top: -95px;
+    font-family: 'Microsoft YaHei';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 48px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #FEBA07;
+}
+
+.Ranking-scorepople {
+    position: absolute;
+    width: 109px;
+    height: 18px;
+    left: 570px;
+    top: -44px;
+
+    font-family: 'Microsoft YaHei';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+
+    color: #000000;
+}
+
+.Ranking-imf li {
+    width: 52px;
+    margin-right: 14px;
+    float: left;
+}
+
+.Ranking-imf {
+    position: absolute;
+    right: -294px;
+    top: 8px;
+
+}
+
+
+.ant-list-grid .ant-col>.ant-list-item {
+    /* background-color: pink; */
+    max-width: 200% !important;
+    width: 1000px;
+
+    background: #FCFCFC;
+    border-radius: 8px;
 }

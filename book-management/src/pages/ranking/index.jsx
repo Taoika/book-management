@@ -1,16 +1,27 @@
 import React from 'react'
 import './index.css'
 import { NavLink } from 'react-router-dom'
-import { LikeOutlined, MessageOutlined, StarOutlined } from '@ant-design/icons';
 import { List, Space } from 'antd';
 
 
 const data = Array.from({
     length: 23,
 }).map((_, i) => ({
-    title: `我的老婆最可爱`,
+    title: <div><div className='Ranking-Rank'>NO.1</div>我的老婆最可爱<div className='Ranking-author'>桃花源 著</div>
+        <strong className='Ranking-label'>标签：</strong><div className='Ranking-tag'>影视原著</div>
+
+    </div>,
     content:
-        <div className='Ranking-text'>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>,
+        <div className='Ranking-text'><div className='Ranking-jianjie'>简介</div>住房位置没选好差点要了主人的命 刚搬来的女租户总听见卧室内有异响，向我求助，我一看监控就让她立刻搬家……--情节虚构，请勿模仿
+            <div className='Ranking-line'></div>
+            <div className='Ranking-score'>8.7</div>
+            <div className='Ranking-scorepople'>共 <i style={{ color: 'brown' }}>2585</i> 人点评</div>
+            <ul className='Ranking-imf'>
+                <li>浏览量 <strong>1000</strong> 次</li>
+                <li>点赞数 <strong>1000</strong> 次</li>
+                <li>收藏数 <strong>1000</strong> 次</li>
+            </ul>
+        </div>,
 }));
 
 const IconText = ({ icon, text }) => (
@@ -33,7 +44,7 @@ export default function Ranking() {
             {/*  */}
             <List
                 grid={{
-                    gutter: 506,
+                    // gutter: 506,
                     column: 1,
                 }}
                 className='Ranking-list'
@@ -50,9 +61,9 @@ export default function Ranking() {
                     <List.Item
                         key={item.title}
                         actions={[
-                            <IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
-                            <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
-                            <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
+                            // <IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
+                            // <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
+                            // <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
                         ]}
                         extra={
                             <img
