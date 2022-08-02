@@ -6,9 +6,8 @@ import './index.css'
 
 export default function Sort() {
     
-    // 从浏览器获取user_id user_name
+    // 从浏览器获取user_name
     let bookManagement = JSON.parse(localStorage.getItem('bookManagement'));
-    const user_id=bookManagement.user_id;
     const user_name=bookManagement.user_name;
 
     // message状态存放有后台传输进来的信息
@@ -60,8 +59,7 @@ export default function Sort() {
         })
     }
 
-
-    // 1-文学历史 2-艺术经典 3-哲学心理 4-科学科技 5- 生活医学 6-杂志情感 7- 科幻玄幻 8-成长教育 9-财经军事 10 -名著传统
+    // 1-文学历史 2-艺术经典  3-科学科技 4- 生活医学 5-杂志情感 6- 科幻玄幻 7-成长教育 8-财经军事 9  -名著传统
     // tag属状态改变 标签底色改变 
     // 发送请求 获取数据 message状态改变 渲染页面
     // 分页状况改变 改变页面 改变分页器

@@ -8,10 +8,16 @@ import book from './images/龙族合集.png'
 
 export default function Home() {
 
-    // 从浏览器获取user_id user_name
-    let bookManagement = JSON.parse(localStorage.getItem('bookManagement'));
-    const user_name=bookManagement.user_name;
-    // console.log(user_name);
+    // user_name 存放用户名
+    let user_name='';
+
+    // 从浏览器获取user_name
+    if(localStorage.getItem('bookManagement')==null){
+        user_name='';
+    }else{
+        let bookManagement = JSON.parse(localStorage.getItem('bookManagement'));
+        user_name=bookManagement.user_name;
+    }
 
     const [hot, setHot] = React.useState([]);
     const [guess, setGuess] = React.useState([]);

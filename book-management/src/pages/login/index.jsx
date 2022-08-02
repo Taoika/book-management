@@ -28,7 +28,7 @@ export default function Login() {
 
     // 点击登录按钮 向后台发送登录请求
     function handleClick(){
-        console.log(formData1);
+        // console.log(formData1);
         axios({
             method: 'POST',
             url: 'https://5v686c5039.goho.co/login',

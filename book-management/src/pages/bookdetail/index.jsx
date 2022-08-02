@@ -103,19 +103,6 @@ export default function Bookdetail() {
         //       })
     },[]);
 
-    // const start=document.querySelector('.Bookdetail-icon2');
-    // const good=document.querySelector('.Bookdetail-icon3');
-    // if(msg.praise===true){
-    //     start.style.src={star}
-    // } else {
-    //     start.style.src={noStar}
-    // }
-    // if(msg.Count===true){
-    //     good.style.src={Good}
-    // } else {
-    //     good.style.src={noGood}
-    // }
-
     //发表评论
     const ExampleComment = ({ children }) => (
         <Comment
@@ -216,6 +203,12 @@ export default function Bookdetail() {
 
     // 点击 点赞按钮
     function handleStar(Event){
+        // 点击时判断点赞还是取消点赞
+        if(msg.praise==true){
+            Event.target.style.src={noGood}
+        } else{
+            Event.target.style.src={Good}
+        }
         axios({
             method: 'GET',
             url: `https://5v686c5039.goho.co/user=${user_name}/book=${book1.bookIndex}/praise`,
@@ -231,6 +224,12 @@ export default function Bookdetail() {
 
     // 点击 收藏按钮
     function handleStar(Event){
+        // 点击时判断收藏还是取消收藏
+        if(msg.collect==true){
+            Event.target.style.src={noStar}
+        } else{
+            Event.target.style.src={star}
+        }
         axios({
             method: 'GET',
             url: `https://5v686c5039.goho.co/user=${user_name}/book=${book1.bookIndex}/start`,
@@ -254,8 +253,8 @@ export default function Bookdetail() {
                 {/* <LikeFilled style={{ color: '#773D31' }} className='Bookdetail-icon2' />
                 <StarFilled style={{ color: '#773D31' }} className='Bookdetail-icon3' /> */}
                 <img src={comment} className="Bookdetail-icon1"/>
-                <img src={noStar} className='Bookdetail-icon2' onClick={(Event)=>handleStar(Event)}/>
-                <img src={noGood} className='Bookdetail-icon3' onClick={(Event)=>handleStar(Event)}/>
+                <img src={msg.collect==true?star:noStar} className='Bookdetail-icon2' onClick={(Event)=>handleStar(Event)}/>
+                <img src={msg.praise==true?Good:noGood} className='Bookdetail-icon3' onClick={(Event)=>handleStar(Event)}/>
             </div>
             {/* 第二模块 */}
             <div className='Bookdetail-card'>

@@ -6,6 +6,17 @@ import searchIcon from './images/搜索.png'
 
 export default function Nav() {
 
+    // user_name 存放用户名
+    let user_name='';
+
+    // 从浏览器获取user_name
+    if(localStorage.getItem('bookManagement')==null){
+        user_name='';
+    }else{
+        let bookManagement = JSON.parse(localStorage.getItem('bookManagement'));
+        user_name=bookManagement.user_name;
+    }
+
     const navigate=useNavigate();
     function toSearch(){
         console.log(searchRef.current.value);
@@ -34,7 +45,7 @@ export default function Nav() {
                     </div>
                     {/* 点击用户头像的地方的时候 要验证是否登录 已登录切换到用户个人信息页面
                     若尚未登录 则弹出登录界面 */}
-                    <Link to='/login' className="nav-user-icon">
+                    <Link to={user_name==''?('/login'):('/person')} className="nav-user-icon">
                         <img src={userIcon} alt="用户头像" width='40px'/>
                     </Link>
                 </div>
