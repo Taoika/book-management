@@ -6,9 +6,17 @@ import './index.css'
 
 export default function Sort() {
     
+    // user_name 存放用户名
+    let user_name='';
+    
     // 从浏览器获取user_name
-    let bookManagement = JSON.parse(localStorage.getItem('bookManagement'));
-    const user_name=bookManagement.user_name;
+    if(localStorage.getItem('bookManagement')==null){
+        user_name='';
+        navigate('/login')
+    }else{
+        let bookManagement = JSON.parse(localStorage.getItem('bookManagement'));
+        user_name=bookManagement.user_name;
+    }
 
     // message状态存放有后台传输进来的信息
     const [message,setMessage]=React.useState([]);
@@ -75,11 +83,7 @@ export default function Sort() {
         //向远程服务器发送请求
         axios({
             method: 'GET',
-            url: 'https://5v686c5039.goho.co',
-            params:{
-                user:user_name,
-                kind:numTag,
-            },
+            url: `https://5v686c5039.goho.co/user=${user_name}/sort=${numTag}`,
           }).then(
             response => {
                 console.log(response);

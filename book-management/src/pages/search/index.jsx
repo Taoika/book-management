@@ -10,10 +10,17 @@ export default function Search() {
     // 存放从搜索栏传进来的信息
     const state = useLocation().state;
 
-    // 从浏览器获取user_id user_name
-    let bookManagement = JSON.parse(localStorage.getItem('bookManagement'));
-    const user_id=bookManagement.user_id;
-    const user_name=bookManagement.user_name;
+    // user_name 存放用户名
+    let user_name='';
+
+    // 从浏览器获取user_name
+    if(localStorage.getItem('bookManagement')==null){
+        user_name='';
+        navigate('/login')
+    }else{
+        let bookManagement = JSON.parse(localStorage.getItem('bookManagement'));
+        user_name=bookManagement.user_name;
+    }
 
     // message状态存放有后台传输进来的信息
     const [message,setMessage]=React.useState([]);
@@ -74,39 +81,35 @@ export default function Search() {
             }     
         }
         //向远程服务器发送请求
-        // axios({
-        //     method: 'GET',
-        //     url: 'https://5v686c5039.goho.co',
-        //     params:{
-        //         user:user_name,
-        //         find:state.content,
-        //     },
-        //   }).then(
-        //     response => {
-        //         console.log(response);
-        //     },
-        //     error => {
-        //       console.log(error);
-        //     }
-        //   )
-        // // 发送请求
-        axios.post('http://localhost:8000/search',JSON.stringify({
-            user_id:user_id,
-            tag:tag.innerHTML,
-          }))
-          .then(
-            (response)=>{
-                // console.log(response.data);
-                setMessage(response.data.message);
-                setCount({
-                    minValue:0,
-                    maxValue:15
-                })
-                setPage(1);
+        axios({
+            method: 'GET',
+            url: `https://5v686c5039.goho.co/user=${user_name}/find=${state.content}`,
+          }).then(
+            response => {
+                console.log(response);
             },
-            (error)=>{
-                console.log(error);
-              })
+            error => {
+              console.log(error);
+            }
+          )
+        // // 发送请求
+        // axios.post('http://localhost:8000/search',JSON.stringify({
+        //     user_id:user_id,
+        //     tag:tag.innerHTML,
+        //   }))
+        //   .then(
+        //     (response)=>{
+        //         // console.log(response.data);
+        //         setMessage(response.data.message);
+        //         setCount({
+        //             minValue:0,
+        //             maxValue:15
+        //         })
+        //         setPage(1);
+        //     },
+        //     (error)=>{
+        //         console.log(error);
+        //       })
     },[tag])
 
     // 处理标签点击
@@ -118,7 +121,7 @@ export default function Search() {
   return (
     <div className="search">
         <div className="search-head">
-            <div className="search-title">为您搜索出xxx条结果</div>
+            <div className="search-title">为您搜索出{message.length}条结果</div>
             <ul className="search-tag">
                 <li onClick={(Event)=>handleClick(Event)}>评分最高</li>
                 <li onClick={(Event)=>handleClick(Event)}>阅读人数</li>

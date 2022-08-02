@@ -204,11 +204,11 @@ export default function Bookdetail() {
     // 点击 点赞按钮
     function handleStar(Event){
         // 点击时判断点赞还是取消点赞
-        if(msg.praise==true){
-            Event.target.style.src={noGood}
-        } else{
-            Event.target.style.src={Good}
-        }
+        // if(msg.praise==true){
+        //     Event.target.style.src={noGood}
+        // } else{
+        //     Event.target.style.src={Good}
+        // }
         axios({
             method: 'GET',
             url: `https://5v686c5039.goho.co/user=${user_name}/book=${book1.bookIndex}/praise`,
@@ -225,11 +225,11 @@ export default function Bookdetail() {
     // 点击 收藏按钮
     function handleStar(Event){
         // 点击时判断收藏还是取消收藏
-        if(msg.collect==true){
-            Event.target.style.src={noStar}
-        } else{
-            Event.target.style.src={star}
-        }
+        // if(msg.collect==true){
+        //     Event.target.style.src={noStar}
+        // } else{
+        //     Event.target.style.src={star}
+        // }
         axios({
             method: 'GET',
             url: `https://5v686c5039.goho.co/user=${user_name}/book=${book1.bookIndex}/start`,

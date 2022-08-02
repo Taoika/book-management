@@ -70,7 +70,20 @@
     color: #101010;
 }
 
-.person-edit>div>img,
+.person-edit>a {
+    color: #101010;
+}
+
+.person-edit>a:hover {
+    color: #101010;
+}
+
+.person-edit,
+.person-quit:hover {
+    cursor: pointer;
+}
+
+.person-edit>a>img,
 .person-quit>div>img {
     margin: 0 12px 0 0;
 }

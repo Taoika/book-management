@@ -5,8 +5,11 @@ import './index.css'
 import fire from './images/CATIA.jpg'
 import more from './images/向右.png'
 import book from './images/龙族合集.png'
+import banner from './images/banner.png'
 
 export default function Home() {
+
+    const navigate = useNavigate()
 
     // user_name 存放用户名
     let user_name='';
@@ -14,6 +17,7 @@ export default function Home() {
     // 从浏览器获取user_name
     if(localStorage.getItem('bookManagement')==null){
         user_name='';
+        navigate('/login');
     }else{
         let bookManagement = JSON.parse(localStorage.getItem('bookManagement'));
         user_name=bookManagement.user_name;
@@ -40,7 +44,7 @@ export default function Home() {
           )
         //   自己的后台
         // axios.post('http://127.0.0.1:8000/home',JSON.stringify({
-        //     user_id:user_id,
+        //     user_id:user_name,
         //   }))
         //   .then(
         //     (response)=>{
@@ -51,8 +55,6 @@ export default function Home() {
         //         console.log(error);
         //       })
     },[]);
-
-    const navigate = useNavigate()
 
     function showDetail(m){
 		navigate('/bookdetail',{
@@ -65,7 +67,7 @@ export default function Home() {
 
     return (
         <div className="home">
-            <div className="home-banner"></div>
+            <div className="home-banner"><img src={banner} alt="懂书 更懂你" /></div>
             <div className="home-content">
                 {/* 头部是固定的 */}
                 <div className="home-content-head">

@@ -6,10 +6,17 @@ import axios from 'axios'
 
 export default function Ranking() {
 
-    // 从浏览器获取user_id user_name
-    let bookManagement = JSON.parse(localStorage.getItem('bookManagement'));
-    const user_id=bookManagement.user_id;
-    const user_name=bookManagement.user_name;
+    // user_name 存放用户名
+    let user_name='';
+    
+    // 从浏览器获取user_name
+    if(localStorage.getItem('bookManagement')==null){
+        user_name='';
+        navigate('/login')
+    }else{
+        let bookManagement = JSON.parse(localStorage.getItem('bookManagement'));
+        user_name=bookManagement.user_name;
+    }
 
     // message状态存放有后台传输进来的信息
     const [message,setMessage]=React.useState([]);
@@ -47,34 +54,30 @@ export default function Ranking() {
             }     
         }
         //向远程服务器发送请求
-        // axios({
-        //     method: 'GET',
-        //     url: 'https://5v686c5039.goho.co',
-        //     params:{
-        //         user:user_name,
-        //         sort:tag,
-        //     },
-        //   }).then(
-        //     response => {
-        //         console.log(response);
-        //     },
-        //     error => {
-        //       console.log(error);
-        //     }
-        //   )
-        // 发送请求
-        axios.post('http://localhost:8000/ranking',JSON.stringify({
-            user_id:user_id,
-            tag:tag,
-          }))
-          .then(
-            (response)=>{
-                console.log(response.data.message);
-                setMessage(response.data.message)
+        axios({
+            method: 'GET',
+            url: `https://5v686c5039.goho.co/user=${user_name}/sort=${tag}`,
+          }).then(
+            response => {
+                console.log(response);
             },
-            (error)=>{
-                console.log(error);
-              })
+            error => {
+              console.log(error);
+            }
+          )
+        // 发送请求
+        // axios.post('http://localhost:8000/ranking',JSON.stringify({
+        //     user_id:user_id,
+        //     tag:tag,
+        //   }))
+        //   .then(
+        //     (response)=>{
+        //         console.log(response.data.message);
+        //         setMessage(response.data.message)
+        //     },
+        //     (error)=>{
+        //         console.log(error);
+        //       })
     
         },[tag])
 

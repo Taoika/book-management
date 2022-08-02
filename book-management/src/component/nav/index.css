@@ -1,10 +1,4 @@
 /* 导航栏 */
-.nav-container {
-    width: 1200px;
-    margin: 0 auto;
-    background-color:  #D9D9D9;
-}
-
 a {
     color:#FCFCFC;
 }
@@ -18,11 +12,24 @@ a:hover {
     flex-wrap: wrap;
     justify-content: space-between;
     box-sizing: border-box;
-    width: 1120px;
+    width: 1200px;
     height: 80px;
-    margin: 0 0 0 80px;
+    padding: 0 0 0 20px;
+    margin: 0 auto ;
     background-color: rgba(119, 61, 49, 1);
 }
+
+.nav-logo {
+    line-height: 80px;
+    font-weight: 700;
+    font-size: 32px;
+    color: #FCFCFC;
+}
+
+.nav-logo>img {
+    margin: 0 20px 0 0;
+}
+
 .nav-screen {
     display: flex;
     flex-wrap: wrap;
@@ -53,7 +60,7 @@ a:hover {
     align-items: center;
     height: 40px;
     width: 40px;
-    margin: 0 20px 0 0;
+    margin: 0 20px 15px 0;
     border-radius: 50%;
     background-color: #D9D9D9;
     overflow: hidden;
@@ -68,7 +75,7 @@ a:hover {
     width: 200px;
     height: 40px;
     padding: 0 0 0 42px;
-    margin: 0 60px 0 0;
+    margin: 0 60px 15px 0;
     border: 1px solid rgba(0,0,0,.05);
     border-radius: 20px;
     background-color: #D9D9D9;
@@ -77,8 +84,8 @@ a:hover {
 
 .nav-search>button {
     position: absolute;
-    left: 15px;
-    bottom:50%;
+    right: 288px;
+    bottom:58%;
     border: none;
     background-color: rgba(0,0,0,0);
     transform: translate(0,50%);

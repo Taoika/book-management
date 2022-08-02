@@ -9,6 +9,7 @@ import Login from '../pages/login'
 import Register from '../pages/register'
 import ForgetPassword from '../pages/forgetPassword' 
 import Collectandhistory from '../pages/collectandhistory'
+import Edit from '../pages/edit'
 
 const routes=[
     {
@@ -25,7 +26,13 @@ const routes=[
     },
     {
         path:'/person',
-        element:<Person/>
+        element:<Person/>,
+        children:[
+            {
+                path:'edit',
+                element:<Edit/>
+            }
+        ]
     },
     {
         path:'/bookdetail',
